@@ -1,0 +1,7 @@
+[
+	{ "subvolume_name": "@{DISTRO}",			"mount_point": "/", 			"mount_options": "defaults,compress=lzo"},
+	{ "subvolume_name": "@{DISTRO}/snapshots",		"mount_point": "/.snapshots",		"mount_options": "defaults,compress=lzo,"},
+	{ "subvolume_name": "@{DISTRO}/var_log",		"mount_point": "/var/log", 		"mount_options": "defaults,compress=lzo,nodatacow"},
+	{ "subvolume_name": "@{DISTRO}/var_cache",		"mount_point": "/var/cache",		"mount_options": "defaults,compress=lzo,nodatacow"}
+]
+

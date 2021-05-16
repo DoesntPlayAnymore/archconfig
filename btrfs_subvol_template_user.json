@@ -1,0 +1,10 @@
+[
+	{ "subvolume_name": "@{DISTRO}/home_{USER}",			"mount_point": "/home/{USER}",				"mount_options": "defaults,compress=lzo"},
+	{ "subvolume_name": "@{DISTRO}/home_{USER}/snapshots",		"mount_point": "/home/{USER}/.snapshots",		"mount_options": "defaults,compress=lzo"},
+	{ "subvolume_name": "@{DISTRO}/home_{USER}/Documents",		"mount_point": "/home/{USER}/Documents",		"mount_options": "defaults,compress=lzo"},
+	{ "subvolume_name": "@{DISTRO}/home_{USER}/Documents/snapshots","mount_point": "/home/{USER}/Documents/.snapshots",	"mount_options": "defaults,compress=lzo"},
+	{ "subvolume_name": "@{DISTRO}/home_{USER}/data",		"mount_point": "/home/{USER}/data",			"mount_options": "defaults,compress=lzo,nodatacow"},
+	{ "subvolume_name": "@{DISTRO}/home_{USER}/Downloads",		"mount_point": "/home/{USER}/Downloads",		"mount_options": "defaults,compress=lzo,nodatacow"},
+	{ "subvolume_name": "@{DISTRO}/home_{USER}/cache",		"mount_point": "/home/{USER}/.cache",			"mount_options": "defaults,compress=lzo,nodatacow"}
+
+]
