@@ -4,6 +4,13 @@ import json
 from itertools import chain
 
 
+partition='/dev/nvme0n1p3'
+distro='arch'
+mount_point='/mnt'
+root_json_file='btrfs_template.json'
+user_json_file='btrfs_user.json'
+users=['pro'],
+boot_partition='/dev/nvme0n1p1'
 
 HOSTNAME='archpad'
 LOCALE='en_DK-UTF8 UTF-8'
@@ -18,7 +25,12 @@ KERNEL_HEADERS='linux-lts-headers'
 pacstrap_packages = ' '.join([
         'base',
         KERNEL,
+        KERNEL_HEADERS,
         'linux-firmware',
+        'git',
+        'base-devel',
+        'btrfs-progs',
+        'bash-autocomplete'
 ])
 
 
@@ -112,7 +124,7 @@ def main(
 
     # Chroot into system.
     os.system(f'arch-chroot {mount_point}')
-    
+    exit(0)
     # Set localization
     os.system(f'echo {LOCALE} >> /etc/locale.gen')
     os.system(f'locale-gen')
@@ -191,10 +203,4 @@ if __name__=='__main__':
 
     exit(main(
             partition=parsed.partition,
-            distro=parsed.distro,
-            mount_point=parsed.mount_point,
-            root_json_file=parsed.root_template,
-            user_json_file=parsed.user_template,
-            users=parsed.users,
-            boot_partition=parsed.boot_partition
     ))
