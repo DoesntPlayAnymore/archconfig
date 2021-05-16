@@ -63,18 +63,12 @@ MKINITCPIO_CONFIG = [
 REFIND_CONFIG = '\n'.join([
         'timeout 20',
         'also_scan_dirs +,@/'
-]
+])
 
 
 
 def main(
         partition,
-        distro,
-        mount_point,
-        root_json_file,
-        user_json_file,
-        users=[],
-        boot_partition=None
 ):
     rootvol = f'@{distro}'
     print(f'Creating {distro} btrfs system on {partition}.')
@@ -120,7 +114,7 @@ def main(
     os.system(f'pacstrap {mount_point} {pacstrap_packages}')    
     
     # Generate filesystem table.
-    os.system(f'genfstab -U -p {mount_point} >> {mount_point}/etc/fstab'
+    os.system(f'genfstab -U -p {mount_point} >> {mount_point}/etc/fstab')
 
     # Chroot into system.
     os.system(f'arch-chroot {mount_point}')
